@@ -20,6 +20,12 @@ To clone project
 git clone https://github.com/Nick-Damico/basic_project_template
 ```
 
+Change into cloned or downloaded directory using command:
+
+```
+cd basic_project_template
+```
+
 Next,
 Install project dependencies
 
