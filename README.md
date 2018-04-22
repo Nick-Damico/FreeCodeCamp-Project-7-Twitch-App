@@ -61,7 +61,7 @@ Please read [CONTRIBUTING.md](https://github.com/Nick-Damico/basic_project_templ
 
 ## Authors
 
-* **Nicholas Damico** - *Initial work* - [PurpleBooth](https://github.com/Nick-Damico)
+* **Nicholas Damico** - *Initial work* - [Nick D'Amico](https://github.com/Nick-Damico)
 
 ## License
 
