@@ -42,7 +42,7 @@ gulp.task('sass', function() {
                browsers: ['last 2 versions'],
                cascade: false
              }))
-             .pipe( gulp.dest('app/css') )
+             .pipe( gulp.dest('app/styles') )
              .pipe(browserSync.reload({
                stream: true
              }))
@@ -74,7 +74,7 @@ return cache.clearAll(callback)
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch('app/scss/**/*.sass', ['sass']);
   gulp.watch('app/index.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('app/scripts/**/*.js', browserSync.reload);
 });
 
 gulp.task('build', function (cb){
