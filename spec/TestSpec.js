@@ -10,4 +10,9 @@ describe('Tests', function() {
     const number = test_js.subtract(5, 10);
     expect(number).toEqual(5);
   });
+
+  it('divides two numbers', function() {
+    const number = test_js.divide(10,5);
+    expect(number).toEqual(2);
+  })
 });
