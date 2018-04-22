@@ -19,10 +19,11 @@
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.5",
     "jasmine": "^3.1.0",
+    "jasmine-console-reporter": "^3.0.0",
     "run-sequence": "^2.2.1"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "node jasmine_reporter"
   },
   "keywords": [
     "gulp",
