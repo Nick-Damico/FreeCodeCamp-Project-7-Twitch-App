@@ -1,0 +1,28 @@
+.wrapper
+	width: 100%
+	max-width: 1200px
+	margin: 0 auto
+
+.wrapper--header
+	width: 97%
+
+.row
+  display: flex
+  flex-flow: row wrap
+  flex: 0 1 auto
+
+[class*="col-"]
+  flex: 0 0 92%
+  margin: 0 0 0 4%
+
+
+
+// @media only screen and (min-width: 480px)
+
+
+@media only screen and (min-width: 899px)
+	.col-order-first
+		order: -1
+
+	.col-lg-6
+		flex: 0 0 44%

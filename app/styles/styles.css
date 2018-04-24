@@ -1,5 +1,5 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize * */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,900");
+@import url("https://fonts.googleapis.com/css?family=Gugi|Montserrat:300,400,500");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -211,16 +211,44 @@ ul {
   padding: 0;
   margin: 0; }
 
-.wrapper {
-  width: 97%;
-  max-width: 1200px;
-  margin: 0 auto;
-  float: none;
-  background-color: #fff; }
-
 div img {
+  width: 100%; }
+
+.wrapper {
   width: 100%;
-  max-width: 225px; }
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.wrapper--header {
+  width: 97%; }
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto; }
+
+[class*="col-"] {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 92%;
+  flex: 0 0 92%;
+  margin: 0 0 0 4%; }
+
+@media only screen and (min-width: 899px) {
+  .col-order-first {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1; }
+  .col-lg-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 44%;
+    flex: 0 0 44%; } }
 
 .button,
 button,
@@ -289,71 +317,77 @@ img::-moz-selection {
 body {
   -webkit-tap-highlight-color: #FFF498; }
 
-.gigantic, .huge, .large, .bigger, .big,
-h1, h2, h3, h4, h5, h6 {
-  color: #222;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07); }
-
-.gigantic {
-  font-size: 110px;
-  line-height: 1.09;
-  letter-spacing: -2px; }
-
-.huge, h1 {
-  font-size: 68px;
-  line-height: 1.05; }
-  @media only screen and (max-width: 680px) {
-    .huge, h1 {
-      font-size: 44px; } }
-
-.large, h2 {
-  font-size: 42px;
-  line-height: 1.14; }
-  @media only screen and (max-width: 680px) {
-    .large, h2 {
-      font-size: 32px; } }
-
-.bigger, h3 {
-  font-size: 26px;
-  line-height: 1.38; }
-  @media only screen and (max-width: 680px) {
-    .bigger, h3 {
-      font-size: 22px; } }
-
-.big, h4 {
-  font-size: 22px;
-  line-height: 1.38; }
-  @media only screen and (max-width: 680px) {
-    .big, h4 {
-      font-size: 18px; } }
-
-.small, small {
-  font-size: 10px;
-  line-height: 1.2; }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Gugi', cursive;
+  margin-bottom: 0;
+  margin-top: .5rem; }
 
 p {
-  margin: 0 0 20px 0;
-  font-weight: 400;
+  margin-top: .25rem; }
+
+p,
+a {
   font-size: 14px; }
 
-em {
-  font-style: italic; }
+p,
+a {
+  font-family: 'Montserrat', sans-serif; }
 
-strong {
-  font-weight: bold; }
+.nav-item__link--user {
+  color: #fff;
+  font-weight: 300; }
 
-hr {
-  border: solid #ddd;
-  border-width: 1px 0 0;
-  clear: both;
-  margin: 10px 0 30px;
-  height: 0; }
+.main-header {
+  width: 100%;
+  background: #111;
+  color: #fff; }
 
-.main__title {
-  color: pink; }
+.main-header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap; }
+
+.main-header__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto; }
+
+.main-logo {
+  width: 120px; }
+
+.nav {
+  display: inherit; }
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.nav-item__link {
+  display: block;
+  padding: 5px 8px; }
+
+.nav-item__icon {
+  width: 35px; }
 
 .flex-video {
   height: 0;
@@ -371,3 +405,13 @@ hr {
   top: 0;
   width: 100%;
   left: 0; }
+
+.stream-preview {
+  background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 1em;
+  padding-bottom: 1em; }
+
+.stream__icon {
+  max-width: 100px; }
