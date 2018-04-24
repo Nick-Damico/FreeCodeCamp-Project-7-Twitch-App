@@ -195,12 +195,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  font-family: Arial, Geneva, sans-serif;
-    font-family--webkit-font-smoothing: antialiased;
-    font-family--webkit-text-size-adjust: 100%;
-    font-family-font-size: 14px;
-    font-family-line-height: 1.6;
-    font-family-font-size: 14px; }
+  background-color: #111; }
 
 a {
   color: #2772B0;
@@ -236,9 +231,15 @@ div img {
 
 [class*="col-"] {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 92%;
-  flex: 0 0 92%;
-  margin: 0 0 0 4%; }
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%; }
+
+@media only screen and (min-width: 480px) {
+  [class*="col-"] {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 92%;
+    flex: 0 0 92%;
+    margin: 0 0 0 4%; } }
 
 @media only screen and (min-width: 899px) {
   .col-order-first {
@@ -389,6 +390,16 @@ a {
 .nav-item__icon {
   width: 35px; }
 
+.stream-preview {
+  background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 1em;
+  padding-bottom: 1em; }
+
+.stream__icon {
+  max-width: 100px; }
+
 .flex-video {
   height: 0;
   margin-bottom: 0.88889rem;
@@ -406,12 +417,39 @@ a {
   width: 100%;
   left: 0; }
 
-.stream-preview {
-  background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding-top: 1em;
-  padding-bottom: 1em; }
+.wrapper--playing {
+  max-width: 900px; }
 
-.stream__icon {
-  max-width: 100px; }
+.now-playing {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  background: url("../images/now-playing-bg.png") no-repeat center;
+  background-size: cover; }
+
+.now-playing__title {
+  margin-bottom: .5rem; }
+
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.game-icon {
+  margin: 0 auto;
+  width: 60px; }
+
+@media only screen and (min-width: 600px) {
+  .icon-container {
+    grid-template-columns: repeat(5, 1fr); }
+  .game-icon {
+    width: 100px; } }
+
+.channels {
+  height: 800px; }
