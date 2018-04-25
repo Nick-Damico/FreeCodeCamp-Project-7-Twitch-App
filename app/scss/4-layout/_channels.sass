@@ -1,12 +1,41 @@
-
 .channels
   padding: 50px 0 10px 0
   height: 100%
+
+[class*="channel-"]
+  height: 300px
+  width: 100%
 
 .channels-inner
   display: flex
   flex-direction: column
 
+.channel__card
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .channel__card-inner
+    display: flex
+    height: 100%
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    color: $white
+
+  .channel__status
+    font-size: 1.2rem
+    font-weight: 300
+    margin-top: -28px
+
+.channel__title
+  text-align: center
+  background: rgba(148, 141, 168, .5)
+  color: $white
+  font-weight: 300
+  margin-top: 0
+  padding: 15px
+  width: 100%
 
 .channel-8
   background: orange
@@ -25,11 +54,8 @@
 .channel-7
     background-color: cornflowerblue
 .channel-9
-    background-color: gray
-
-[class*="channel-"]
-  height: 300px
-  width: 100%
+    background: url('../images/twitch-placeholder.jpg') no-repeat center
+    background-size: cover
 
 @media only screen and (min-width: 499px)
   .channels-inner
