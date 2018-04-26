@@ -38,7 +38,7 @@
       </div>
     </header>
 
-    <section class="stream-preview">
+    <section id="featuredSection" class="stream-preview">
       <div class="wrapper">
         <div class="row">
           <div class="col-sm-12 col-lg-6">
@@ -100,8 +100,30 @@
         </div>
       </div>
     </script>
+
+    <script id="featured-template" type="text/x-handlebars-template">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <img class="stream__icon" src="{logo}">
+            <h3 class="stream__title">{title}</h3>
+            <p class="stream__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod!
+              Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit,
+              quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
+              ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6 col-order-first">
+            <img class="stream__banner" src="{banner}" alt="" />
+          </div>
+        </div>
+      </div>
+    </script>
+
     <script type="text/javascript" src="scripts/handlebars-v4.0.11.js"></script>
   <!--build:js js/main.min.js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="scripts/app.js"></script>
   <!-- endbuild -->
 
