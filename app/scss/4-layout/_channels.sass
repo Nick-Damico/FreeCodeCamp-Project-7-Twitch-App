@@ -27,10 +27,11 @@
     font-size: 1.2rem
     font-weight: 300
     margin-top: -28px
+    overflow: hidden
 
 .channel__title
   text-align: center
-  background: rgba(148, 141, 168, .5)
+  background: rgba(148, 141, 168, 0.5)
   color: $white
   font-weight: 300
   margin-top: 0
@@ -39,23 +40,29 @@
 
 .channel-8
   background: orange
+
 .channel-1
   background-color: teal
+
 .channel-5
   background: lightgreen
+
 .channel-3
   background-color: gold
+
 .channel-4
   background: tomato
 
 .channel-2,
 .channel-6
   background-color: lightyellow
+
 .channel-7
-    background-color: cornflowerblue
+  background-color: cornflowerblue
+
 .channel-9
-    background: url('../images/twitch-placeholder.jpg') no-repeat center
-    background-size: cover
+  background: url("../images/twitch-placeholder.jpg") no-repeat center
+  background-size: cover
 
 @media only screen and (min-width: 499px)
   .channels-inner
@@ -71,7 +78,6 @@
     min-width: 500px
 
 @media only screen and (min-width: 750px)
-
   [class*="channel-"]:last-child
     min-width: 250px
 
@@ -89,7 +95,6 @@
     min-height: 300px
     width: 100%
     height: 100%
-
 
   .channel-1
     grid-row: 1 / 2

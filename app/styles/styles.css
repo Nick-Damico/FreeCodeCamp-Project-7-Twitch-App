@@ -195,7 +195,8 @@ html {
   box-sizing: inherit; }
 
 body {
-  background-color: #111;
+  background-color: #1d1330;
+    background-color-background: url("../images/slice1.png") repeat;
     background-color-display: flex;
     background-color-min-height: 100vh;
     background-color-flex-direction: column; }
@@ -213,12 +214,12 @@ div img {
   width: 100%; }
 
 .wrapper {
-  width: 100%;
+  width: 97%;
   max-width: 1200px;
   margin: 0 auto; }
 
-.wrapper--header {
-  width: 97%; }
+.wrapper--featured__stats {
+  width: 100%; }
 
 .row {
   display: -webkit-box;
@@ -245,6 +246,8 @@ div img {
     margin: 0 0 0 4%; } }
 
 @media only screen and (min-width: 750px) {
+  .wrapper {
+    width: 100%; }
   .col-order-first {
     -webkit-box-ordinal-group: 0;
     -ms-flex-order: -1;
@@ -410,6 +413,24 @@ small,
 .nav-item__icon {
   width: 35px; }
 
+.nav-item__link--crown {
+  position: relative; }
+
+.live__count {
+  position: absolute;
+  background-color: rgba(220, 20, 60, 0.7);
+  padding: 4px 6px;
+  top: -4px;
+  left: -12px;
+  font-size: .5rem; }
+
+.nav-item__link--user {
+  display: none; }
+
+@media only screen and (min-width: 480px) {
+  .nav-item__link--user {
+    display: block; } }
+
 .featured-stream {
   background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
   background-size: cover;
@@ -448,15 +469,14 @@ small,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: translateX(-600px);
-  transform: translateX(-600px);
+  -webkit-transform: translateX(-800px);
+  transform: translateX(-800px);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-height: 330px;
   background: rgba(99, 65, 165, 0.5);
   -webkit-transition: -webkit-transform .5s ease-in;
   transition: -webkit-transform .5s ease-in;
@@ -577,7 +597,8 @@ small,
   .channel__card .channel__status {
     font-size: 1.2rem;
     font-weight: 300;
-    margin-top: -28px; }
+    margin-top: -28px;
+    overflow: hidden; }
 
 .channel__title {
   text-align: center;
