@@ -8,12 +8,13 @@ const featureTemplate = Handlebars.compile(featureSource.innerHTML);
 const channelSource = document.getElementById('channel-template');
 const channelTemplate = Handlebars.compile(channelSource.innerHTML);
 let fetchStatus = false;
-// Streamer Class, building class instances of 'Streamer'
 
+// Random Number based on a supplied Max number, return will be a num 0 - max
 function randomNumber(max) {
   return Math.floor(Math.random() * max);
 }
 
+// Streamer Class, building class instances of 'Streamer'
 class Streamer {
   constructor(id, streamer) {
     this.id = id;
@@ -25,7 +26,7 @@ class Streamer {
     Streamer.all(this);
   };
 
-  // Builds a Class array to keep track of all instances of the class
+  // Builds a Class scoped array to keep track of all instances of the class
   static all(streamer) {
     if (this.collection === undefined) {
       this.collection = [];
@@ -41,7 +42,7 @@ class Streamer {
     let count = 1;
     // iterates over array of strings instantiate them as Objects
     for (let streamer of array) {
-
+      // count is incremented each iteration to supply id for Streamer Objects
       new Streamer(count++, streamer);
     }
   };
@@ -71,6 +72,7 @@ class TwitchApp {
         streamer.logo = stream.channel.logo;
         streamer.url = stream.channel.url;
       }
+      // Calls TwitchApp Methods once the last Streamer Fetch has resolved
       if (streamer.id === 9) {
         this.appendChannelCards();
         this.getFeatured();
@@ -78,7 +80,8 @@ class TwitchApp {
     });
   };
 
-  static buildChannelCards() {
+  // Adds Properties to Streamer Objects from AJAX Request to Twitch API
+  static buildStreamers() {
     let streamers = Streamer.all();
 
     for (let streamer of streamers) {
@@ -87,11 +90,14 @@ class TwitchApp {
 
   };
 
+  // Append channel__cards to DOM using Streamers.all collection
   static appendChannelCards() {
     const channelCardsHTML = channelTemplate({streamers: Streamer.all()});
     channelsContainer.innerHTML = channelCardsHTML;
   }
 
+  // Randomly selects a streamer thats status is 'Live',
+  // Appends it to the DOM using template
   static getFeatured() {
     let liveStreams = Streamer.all().filter((streamer) => streamer.status === 'Live');
     let randNum = randomNumber(liveStreams.length);
@@ -133,19 +139,8 @@ const twitchStreamers = [
   }
 ];
 
+// Build Streamer Objects
 Streamer.buildStreamers(twitchStreamers);
 
+// Create channel__card HTML using Template and append to DOM.
 TwitchApp.buildChannelCards();
-// runningManZ = new Streamer(1, twitchStreamers[1]);
-// TwitchApp.getStreamerInfo(runningManZ);
-
-//  Get HTML from evaluating Handlebars template
-// const content = {
-//   id: 9,
-//   title: 'Happy Stream',
-//   status: 'Live'
-// };
-// const html = channelTemplate(content);
-//
-//  Append Compiled HTML into the DOM
-// channelsContainer.innerHTML = html
