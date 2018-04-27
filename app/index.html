@@ -14,17 +14,18 @@
 <body>
 
   <header class="main-header">
-    <div class="wrapper wrapper--header">
+    <div class="wrapper">
       <div class="main-header__inner">
         <h1 class="main-header__title">
             <img class="main-logo" src="images/twitch-alert-logo.svg" alt="Twitch Alert Logo" />
           </h1>
         <nav class="nav">
           <ul class="nav__list">
-            <li class="nav-item">
-              <a class="nav-item__link" href="#">
-                  <img class="nav-item__icon" src="images/crown.svg" alt="alert notification icon" />
-                </a>
+            <li class="nav-item nav-item__link--crown">
+              <a class="nav-item__link " href="#">
+                <img class="nav-item__icon" src="images/crown.svg" alt="alert notification icon" />
+              </a>
+              <span id="liveCount" class="live__count">3</span>
             </li>
             <li class="nav-item">
               <a class="nav-item__link nav-item__link--user" href="#">user@twitchmail.com</a>
@@ -61,11 +62,11 @@
           </div>
         </div>
       </div>
-      <div class="featured__stats--container">
-        <div class="stat">20000</div>
-        <div class="stat">182</div>
-        <div class="stat">Game: Minecraft</div>
-      </div>
+    </div>
+    <div class="featured__stats--container">
+      <div class="stat">20000</div>
+      <div class="stat">182</div>
+      <div class="stat">Game: Minecraft</div>
     </div>
   </section>
 
@@ -91,7 +92,7 @@
   </section>
 
   <footer class="footer">
-    <small>&copy;2018. Made by <span class="footer__icon">&#9758;</span> NicholasDamico.net</small>
+    <small>&copy;2018. Made by <span class="footer__icon">&#9758; <a href="http://nicholasdamico.net" target="_blank">NicholasDamico.net</a>
   </footer>
 
   <script id="channel-template" type="text/x-handlebars-template">
@@ -122,25 +123,24 @@
           <div class="featured__banner--inner flex">
             <img class="featured__banner" src="{{preview}}" alt="" />
             <div class="featured__overlay">
-              <a class="channel__button" href="">View Stream</a>
+              <a class="channel__button" href="{{url}}">View Stream</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="featured__stats--container">
-        <div class="stat">Followers: {{followers}}</div>
-        <div class="stat">Total Views: {{views}}</div>
-        <div class="stat">Game: {{game}}</div>
-      </div>
+    </div>
+    <div class="featured__stats--container wrapper wrapper--featured__stats">
+      <div class="stat">Followers: {{followers}}</div>
+      <div class="stat">Game: {{game}}</div>
+      <div class="stat">Total Views: {{views}}</div>
     </div>
   </script>
 
-  <script type="text/javascript" src="scripts/handlebars-v4.0.11.js"></script>
-  <!--build:js js/main.min.js -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="scripts/app.js"></script>
+  <!--build:js scripts/main.min.js -->
+  <script src="scripts/handlebars-v4.0.11.js"></script>
   <!-- endbuild -->
-
+  <script src="scripts/app.js"></script>
 
 </body>
 
