@@ -1,15 +1,143 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
-    <link rel="stylesheet" href="css/styles.min.css">
-  </head>
-  <body>
-    <h1 class="main__title">ShoeApp</h1>
 
-  <script src="js/main.min.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+  <link rel="stylesheet" href="css/styles.min.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="wrapper">
+      <div class="main-header__inner">
+        <h1 class="main-header__title">
+            <img class="main-logo" src="images/twitch-alert-logo.svg" alt="Twitch Alert Logo" />
+          </h1>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav-item nav-item__link--crown">
+              <a class="nav-item__link " href="#">
+                <img class="nav-item__icon" src="images/crown.svg" alt="alert notification icon" />
+              </a>
+              <span id="liveCount" class="live__count">3</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item__link nav-item__link--user" href="#">user@twitchmail.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item__link" href="#">
+                  <img class="nav-item__icon" src="images/user-icon.svg" alt="alert notification icon" />
+                </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="featuredSection" class="featured-stream">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <h2 class="featured__name">Name</h2>
+          <img class="featured__icon" src="http://via.placeholder.com/100x100">
+          <h3 class="featured__title">Stream Title</h3>
+          <p class="featured__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod! Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit, quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
+            ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
+          </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner">
+          <div class="featured__banner--inner flex">
+            <img class="featured__banner" src="http://via.placeholder.com/580x360" alt="" />
+            <div class="featured__overlay">
+              <a class="channel__button" href="">View Stream</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="featured__stats--container">
+      <div class="stat">20000</div>
+      <div class="stat">182</div>
+      <div class="stat">Game: Minecraft</div>
+    </div>
+  </section>
+
+  <section class="now-playing">
+    <h2 class="now-playing__title">Now Playing</h2>
+    <div class="wrapper wrapper--playing">
+      <div class="icon-container">
+        <img class="game-icon" src="images/dayz-icon.png" alt="">
+        <img class="game-icon" src="images/minecraft-icon.png" alt="">
+        <img class="game-icon" src="images/fortnite-icon.png" alt="">
+        <img class="game-icon" src="images/code-icon.png" alt="">
+        <img class="game-icon" src="images/est-icon.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="channels">
+    <div class="wrapper">
+      <div id="channelsContainer" class="channels-inner">
+        <h2>Loading</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <small>&copy;2018. Made by <span class="footer__icon">&#9758; <a href="http://nicholasdamico.net" target="_blank">NicholasDamico.net</a>
+  </footer>
+
+  <script id="channel-template" type="text/x-handlebars-template">
+    {{#each streamers}}
+    <div class="channel__card channel-{{id}}" style="background: url('{{image}}') no-repeat center; background-size: cover;">
+      <h3 class="channel__title">{{name}}</h3>
+      <div class="channel__card-inner">
+        <p class="channel__status">{{status}}</p>
+        <a class="channel__button" href="{{url}}" target="_blank">View</a>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <script id="featured-template" type="text/x-handlebars-template">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <h2 class="featured__name">{{name}}</h2>
+          <img class="featured__icon" src="{{logo}}">
+          <h3 class="featured__title">{{title}}</h3>
+          <p class="featured__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod! Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit, quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
+            ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
+          </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner">
+          <div class="featured__banner--inner flex">
+            <img class="featured__banner" src="{{preview}}" alt="" />
+            <div class="featured__overlay">
+              <a class="channel__button" href="{{url}}">View Stream</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="featured__stats--container wrapper wrapper--featured__stats">
+      <div class="stat">Followers: {{followers}}</div>
+      <div class="stat">Game: {{game}}</div>
+      <div class="stat">Total Views: {{views}}</div>
+    </div>
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts/main.min.js"></script>
+  <script src="scripts/app.js"></script>
+
+</body>
+
 </html>
