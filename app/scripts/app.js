@@ -59,9 +59,9 @@ class TwitchApp {
   static callTwitchAPI() {
 
     const streamers = Streamer.all();
-
     for (let streamer of streamers) {
-      $.getJSON(this.url() + streamer.name + '?callback=?', (data) => {
+      let streamerName = streamer.name.toLowerCase().replace(" ", "");
+      $.getJSON(this.url() + streamerName + '?callback=?', (data) => {
         // debugger;
         if (data.stream) {
           // store response JSON Data
@@ -105,31 +105,31 @@ class TwitchApp {
 // Array of streamers tracked in this program
 const twitchStreamers = [
   {
-    name: "freecodecamp",
+    name: "Free Code Camp",
     image: 'images/fcc__card.png'
   }, {
-    name: "therunningmanz",
-    image: 'images/runningz__card.png'
-  }, {
-    name: "kotton",
+    name: "Kotton",
     image: 'images/kotton__card.png'
   }, {
-    name: "giantwaffle",
+    name: "The Running Man Z",
+    image: 'images/runningz__card.png'
+  }, {
+    name: "Giant Waffle",
     image: 'images/waffle__card.png'
   }, {
-    name: "dakotaz",
+    name: "Dakotaz",
     image: 'images/dakotaz__card.png'
   }, {
-    name: "geekandsundry",
+    name: "Geek and Sundry",
     image: 'images/gs__card.png'
   }, {
-    name: "anneMunition",
+    name: "AnneMunition",
     image: 'images/annemunition__card.png'
   }, {
-    name: "ninja",
+    name: "Ninja",
     image: 'images/ninja__card.png'
   }, {
-    name: "yogscast",
+    name: "Yogscast",
     image: 'images/yogs__card.png'
   }
 ];
