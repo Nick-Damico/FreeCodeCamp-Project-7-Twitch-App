@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const useref = require('gulp-useref');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
+const babel = require('gulp-babel');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
@@ -10,22 +11,6 @@ const del = require('del');
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
-
-// EXAMPLE OF GULP TASK FORMAT
-  // gulp.task('task-name', function () {
-  //   return gulp.src('source-files') // Get source files with gulp.src
-  //     .pipe(aGulpPlugin()) // Sends it through a gulp plugin
-  //     .pipe(gulp.dest('destination')) // Outputs the file in the destination folder
-  // })
-
-// Gulp watch syntax
-  // gulp.watch('files-to-watch', ['tasks', 'to', 'run']);
-
-// Multiply Watch Tasks
-  // gulp.task('watch', function(){
-  //   gulp.watch('app/scss/**/*.scss', ['sass']);
-  //   // Other watchers
-  // })
 
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -48,12 +33,19 @@ gulp.task('sass', function() {
              }))
 });
 
+gulp.task('babel', () => {
+  return gulp.src('app/scripts/app.js')
+             .pipe(babel({
+               presets: ['env']
+             }))
+             .pipe(gulp.dest('dist'))
+});
+
 gulp.task('useref', function(){
   return gulp.src('app/*.html')
     .pipe(useref())
-    // Minifies only if it's a JavaScript file
-    .pipe(gulpIf('*.js', uglify()))
     .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('dist'))
 });
 
