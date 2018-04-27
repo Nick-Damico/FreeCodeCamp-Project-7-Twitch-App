@@ -354,6 +354,7 @@ a {
 p,
 a,
 small,
+.featured__stats--container,
 .channel__title {
   font-family: 'Montserrat', sans-serif; }
 
@@ -413,8 +414,12 @@ small,
   background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 1em;
-  padding-bottom: 1em; }
+  padding-top: 2em; }
+
+.featured__name {
+  margin-top: 0;
+  color: #fff;
+  letter-spacing: 1px; }
 
 .featured__icon {
   max-width: 100px; }
@@ -424,10 +429,69 @@ small,
   display: -ms-flexbox;
   display: flex; }
 
+.featured__banner {
+  background: #111; }
+
 .featured__banner--inner {
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  position: relative;
+  overflow: hidden; }
+
+.featured__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateX(-600px);
+  transform: translateX(-600px);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-height: 330px;
+  background: rgba(99, 65, 165, 0.5);
+  -webkit-transition: -webkit-transform .5s ease-in;
+  transition: -webkit-transform .5s ease-in;
+  transition: transform .5s ease-in;
+  transition: transform .5s ease-in, -webkit-transform .5s ease-in; }
+
+.featured__banner--inner:hover .featured__overlay {
+  -webkit-transform: translateX(0);
+  transform: translateX(0); }
+
+.featured__stats--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: #6341A5;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  margin-top: 40px;
+  color: #fff; }
+  .featured__stats--container .stat {
+    background-color: #6341A5;
+    border: 1px solid #37245c;
+    padding: 10px 20px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    text-align: center; }
 
 .wrapper--playing {
   max-width: 900px; }

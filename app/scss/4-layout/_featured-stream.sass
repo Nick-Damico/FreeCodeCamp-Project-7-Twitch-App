@@ -2,8 +2,12 @@
   background: url('../images/jumbotron_bg@2x.jpg') no-repeat
   background-size: cover
   background-position: center
-  padding-top: 1em
-  padding-bottom: 1em
+  padding-top: 2em
+
+.featured__name
+  margin-top: 0
+  color: $white
+  letter-spacing: 1px
 
 .featured__icon
   max-width: 100px
@@ -11,5 +15,45 @@
 .flex
   display: flex
 
+.featured__banner
+  background: $black
+
 .featured__banner--inner
   align-items: center
+  position: relative
+  overflow: hidden
+
+.featured__overlay
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: flex
+  transform: translateX(-600px)
+  justify-content: center
+  align-items: center
+  max-height: 330px
+  background: rgba($twitch_purple, .5)
+  transition: transform .5s ease-in
+
+.featured__banner--inner:hover .featured__overlay
+  transform: translateX(0)
+
+
+// Featured Stats
+.featured__stats--container
+  display: flex
+  flex-direction: row
+  background-color: $twitch_purple
+  justify-content: center
+  align-items: flex-end
+  margin-top: 40px
+  color: $white
+
+  .stat
+    background-color: $twitch_purple
+    border: 1px solid darken($twitch_purple, 20%)
+    padding: 10px 20px
+    flex: 1 1 auto
+    text-align: center

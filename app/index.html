@@ -44,16 +44,27 @@
     <div class="wrapper">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
+          <h2 class="featured__name">Name</h2>
           <img class="featured__icon" src="http://via.placeholder.com/100x100">
-          <h3 class="featrued__title">Stream Title</h3>
+          <h3 class="featured__title">Stream Title</h3>
           <p class="featured__text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod! Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit, quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
             ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
           </p>
         </div>
-        <div class="col-sm-12 col-lg-6 col-order-first">
-          <img class="featured__banner" src="http://via.placeholder.com/580x360" alt="" />
+        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner">
+          <div class="featured__banner--inner flex">
+            <img class="featured__banner" src="http://via.placeholder.com/580x360" alt="" />
+            <div class="featured__overlay">
+              <a class="channel__button" href="">View Stream</a>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="featured__stats--container">
+        <div class="stat">20000</div>
+        <div class="stat">182</div>
+        <div class="stat">Game: Minecraft</div>
       </div>
     </div>
   </section>
@@ -99,6 +110,7 @@
     <div class="wrapper">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
+          <h2 class="featured__name">{{name}}</h2>
           <img class="featured__icon" src="{{logo}}">
           <h3 class="featured__title">{{title}}</h3>
           <p class="featured__text">
@@ -106,9 +118,19 @@
             ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
           </p>
         </div>
-        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner--inner">
-          <img class="featured__banner" src="{{preview}}" alt="" />
+        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner">
+          <div class="featured__banner--inner flex">
+            <img class="featured__banner" src="{{preview}}" alt="" />
+            <div class="featured__overlay">
+              <a class="channel__button" href="">View Stream</a>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="featured__stats--container">
+        <div class="stat">Followers: {{followers}}</div>
+        <div class="stat">Total Views: {{views}}</div>
+        <div class="stat">Game: {{game}}</div>
       </div>
     </div>
   </script>

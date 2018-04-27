@@ -14,6 +14,18 @@ function randomNumber(max) {
   return Math.floor(Math.random() * max);
 }
 
+function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
+
 // Streamer Class, building class instances of 'Streamer'
 class Streamer {
   constructor(id, streamer) {
@@ -67,14 +79,15 @@ class TwitchApp {
           // store response JSON Data
           const stream = data.stream;
           streamer.status = 'Live';
-          streamer.followers = stream.channel.followers;
+          streamer.followers = addCommas(stream.channel.followers);
           streamer.banner = stream.channel.profile_banner;
           streamer.preview = stream.preview.large;
           streamer.title = stream.channel.status;
-          streamer.views = stream.channel.views;
-          streamer.game = stream.game;
+          streamer.views = addCommas(stream.channel.views);
           streamer.logo = stream.channel.logo;
           streamer.url = stream.channel.url;
+          streamer.game = stream.game;
+
         }
         // Calls TwitchApp Methods once the last Streamer Fetch has resolved
         if (streamer.id === 9) {
