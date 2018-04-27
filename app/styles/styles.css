@@ -549,7 +549,9 @@ small,
     justify-content: center; }
   [class*="channel-"] {
     width: 250px;
-    height: 250px; } }
+    height: 250px; }
+  [class*="channel-"]:last-child {
+    min-width: 500px; } }
 
 @media only screen and (min-width: 900px) {
   .channels-inner {

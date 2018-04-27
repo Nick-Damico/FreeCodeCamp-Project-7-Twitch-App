@@ -74,15 +74,7 @@
     <section class="channels">
       <div class="wrapper">
         <div id="channelsContainer" class="channels-inner">
-          <div class="channel__card channel-1"></div>
-          <div class="channel__card channel-2"></div>
-          <div class="channel__card channel-3"></div>
-          <div class="channel__card channel-4"></div>
-          <div class="channel__card channel-5"></div>
-          <div class="channel__card channel-6"></div>
-          <div class="channel__card channel-7"></div>
-          <div class="channel__card channel-8"></div>
-          <!-- <div class="channel-9"></div> -->
+          <h2>Loading</h2>
         </div>
       </div>
     </section>
@@ -92,21 +84,23 @@
     </footer>
 
     <script id="channel-template" type="text/x-handlebars-template">
-      <div class="channel__card channel-{{id}}">
-        <h3 class="channel__title">{{title}}</h3>
+      {{#each streamers}}
+      <div class="channel__card channel-{{id}}" style="background: url('{{image}}') no-repeat center; background-size: cover;">
+        <h3 class="channel__title">{{name}}</h3>
         <div class="channel__card-inner">
           <p class="channel__status">{{status}}</p>
-          <a class="channel__button" href="#">View</a>
+          <a class="channel__button" href="{{url}}" target="_blank">View</a>
         </div>
       </div>
+      {{/each}}
     </script>
 
     <script id="featured-template" type="text/x-handlebars-template">
       <div class="wrapper">
         <div class="row">
           <div class="col-sm-12 col-lg-6">
-            <img class="stream__icon" src="{logo}">
-            <h3 class="stream__title">{title}</h3>
+            <img class="stream__icon" src="{{logo}}">
+            <h3 class="stream__title">{{title}}</h3>
             <p class="stream__text">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod!
               Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit,
@@ -115,7 +109,7 @@
             </p>
           </div>
           <div class="col-sm-12 col-lg-6 col-order-first">
-            <img class="stream__banner" src="{banner}" alt="" />
+            <img class="stream__banner" src="{{banner}}" alt="" />
           </div>
         </div>
       </div>
