@@ -405,15 +405,25 @@ small,
 .nav-item__icon {
   width: 35px; }
 
-.stream-preview {
+.featured-stream {
   background: url("../images/jumbotron_bg@2x.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   padding-top: 1em;
   padding-bottom: 1em; }
 
-.stream__icon {
+.featured__icon {
   max-width: 100px; }
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.featured__banner--inner {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .wrapper--playing {
   max-width: 900px; }

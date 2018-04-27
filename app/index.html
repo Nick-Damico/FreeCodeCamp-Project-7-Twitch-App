@@ -1,126 +1,125 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
-    <!--build:css css/styles.min.css-->
-      <link rel="stylesheet" href="styles/styles.css">
-    <!--endbuild-->
-  </head>
-  <body>
 
-    <header class="main-header">
-      <div class="wrapper wrapper--header">
-        <div class="main-header__inner">
-          <h1 class="main-header__title">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+  <!--build:css css/styles.min.css-->
+  <link rel="stylesheet" href="styles/styles.css">
+  <!--endbuild-->
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="wrapper wrapper--header">
+      <div class="main-header__inner">
+        <h1 class="main-header__title">
             <img class="main-logo" src="images/twitch-alert-logo.svg" alt="Twitch Alert Logo" />
           </h1>
-          <nav class="nav">
-            <ul class="nav__list">
-              <li class="nav-item">
-                <a class="nav-item__link" href="#">
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav-item">
+              <a class="nav-item__link" href="#">
                   <img class="nav-item__icon" src="images/crown.svg" alt="alert notification icon" />
                 </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-item__link nav-item__link--user" href="#">user@twitchmail.com</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-item__link" href="#">
+            </li>
+            <li class="nav-item">
+              <a class="nav-item__link nav-item__link--user" href="#">user@twitchmail.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item__link" href="#">
                   <img class="nav-item__icon" src="images/user-icon.svg" alt="alert notification icon" />
                 </a>
-              </li>
-            </ul>
-          </nav>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="featuredSection" class="featured-stream">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <img class="featured__icon" src="http://via.placeholder.com/100x100">
+          <h3 class="featrued__title">Stream Title</h3>
+          <p class="featured__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod! Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit, quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
+            ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
+          </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-order-first">
+          <img class="featured__banner" src="http://via.placeholder.com/580x360" alt="" />
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section id="featuredSection" class="stream-preview">
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <img class="stream__icon" src="http://via.placeholder.com/100x100">
-            <h3 class="stream__title">Stream Title</h3>
-            <p class="stream__text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod!
-              Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit,
-              quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
-              ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-6 col-order-first">
-            <img class="stream__banner" src="http://via.placeholder.com/580x360" alt="" />
-          </div>
+  <section class="now-playing">
+    <h2 class="now-playing__title">Now Playing</h2>
+    <div class="wrapper wrapper--playing">
+      <div class="icon-container">
+        <img class="game-icon" src="images/dayz-icon.png" alt="">
+        <img class="game-icon" src="images/minecraft-icon.png" alt="">
+        <img class="game-icon" src="images/fortnite-icon.png" alt="">
+        <img class="game-icon" src="images/code-icon.png" alt="">
+        <img class="game-icon" src="images/est-icon.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="channels">
+    <div class="wrapper">
+      <div id="channelsContainer" class="channels-inner">
+        <h2>Loading</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <small>&copy;2018. Made by <span class="footer__icon">&#9758;</span> NicholasDamico.net</small>
+  </footer>
+
+  <script id="channel-template" type="text/x-handlebars-template">
+    {{#each streamers}}
+    <div class="channel__card channel-{{id}}" style="background: url('{{image}}') no-repeat center; background-size: cover;">
+      <h3 class="channel__title">{{name}}</h3>
+      <div class="channel__card-inner">
+        <p class="channel__status">{{status}}</p>
+        <a class="channel__button" href="{{url}}" target="_blank">View</a>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <script id="featured-template" type="text/x-handlebars-template">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <img class="featured__icon" src="{{logo}}">
+          <h3 class="featured__title">{{title}}</h3>
+          <p class="featured__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod! Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit, quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
+            ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
+          </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-order-first flex featured__banner--inner">
+          <img class="featured__banner" src="{{preview}}" alt="" />
         </div>
       </div>
-    </section>
+    </div>
+  </script>
 
-    <section class="now-playing">
-      <h2 class="now-playing__title">Now Playing</h2>
-      <div class="wrapper wrapper--playing">
-        <div class="icon-container">
-          <img class="game-icon" src="images/dayz-icon.png" alt="">
-          <img class="game-icon" src="images/minecraft-icon.png" alt="">
-          <img class="game-icon" src="images/fortnite-icon.png" alt="">
-          <img class="game-icon" src="images/code-icon.png" alt="">
-          <img class="game-icon" src="images/est-icon.png" alt="">
-        </div>
-      </div>
-    </section>
-
-    <section class="channels">
-      <div class="wrapper">
-        <div id="channelsContainer" class="channels-inner">
-          <h2>Loading</h2>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <small>&copy;2018. Made by <span class="footer__icon">&#9758;</span> NicholasDamico.net</small>
-    </footer>
-
-    <script id="channel-template" type="text/x-handlebars-template">
-      {{#each streamers}}
-      <div class="channel__card channel-{{id}}" style="background: url('{{image}}') no-repeat center; background-size: cover;">
-        <h3 class="channel__title">{{name}}</h3>
-        <div class="channel__card-inner">
-          <p class="channel__status">{{status}}</p>
-          <a class="channel__button" href="{{url}}" target="_blank">View</a>
-        </div>
-      </div>
-      {{/each}}
-    </script>
-
-    <script id="featured-template" type="text/x-handlebars-template">
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <img class="stream__icon" src="{{logo}}">
-            <h3 class="stream__title">{{title}}</h3>
-            <p class="stream__text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, modi, quod!
-              Vero nobis expedita asperiores sunt eaque nihil earum facilis non voluptatum rem odit,
-              quasi amet, quidem temporibus sed tenetur libero eos. Ipsa, delectus quos reprehenderit
-              ipsum distinctio perspiciatis suscipit, ab fugit dolores, consequuntur animi.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-6 col-order-first">
-            <img class="stream__banner" src="{{preview}}" alt="" />
-          </div>
-        </div>
-      </div>
-    </script>
-
-    <script type="text/javascript" src="scripts/handlebars-v4.0.11.js"></script>
+  <script type="text/javascript" src="scripts/handlebars-v4.0.11.js"></script>
   <!--build:js js/main.min.js -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/app.js"></script>
+  <script src="scripts/app.js"></script>
   <!-- endbuild -->
 
 
-  </body>
+</body>
+
 </html>
