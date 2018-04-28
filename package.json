@@ -4,6 +4,7 @@
   "description": "Project Template using Gulp.js, Sass, Jasmine",
   "main": "app.js",
   "dependencies": {
+    "gulp-rename": "^1.2.2",
     "npm": "^5.8.0"
   },
   "devDependencies": {
