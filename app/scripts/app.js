@@ -74,9 +74,8 @@ class TwitchApp {
 
     const streamers = Streamer.all();
     for (let streamer of streamers) {
-      let streamerName = streamer.name.toLowerCase().replace(" ", "");
+      let streamerName = streamer.name.split(" ").join("").toLowerCase();
       $.getJSON(this.url() + streamerName + '?callback=?', (data) => {
-        // debugger;
         if (data.stream) {
           // store response JSON Data
           const stream = data.stream;
@@ -130,7 +129,7 @@ const twitchStreamers = [
     image: 'images/kotton__card.png',
     summary: "Survival , War , Maybe Even some Roleplay. Let's laugh while we do it. Kotton has been a Youtuber and Streamer on Twitch since 2014. He is best known for streaming 'Escape From Tarkov'."
   }, {
-    name: "The Running Man Z",
+    name: "the Running Man Z",
     image: 'images/runningz__card.png',
     summary: "I've been a gamer for a long time! I'm 38 (forever) with 2 daughters. I have really enjoyed producing content for YouTube, Twitch is so great for me to allow further interaction with the community we are growing from YouTube as well as reach new people too! I got Twitch partnered on June 12th 2015 and decided to give this a go for a living as of May 15th 2016. It will be a real challenge to try and keep my channel growing in the right direction. Thanks for being here! ;)",
   }, {
