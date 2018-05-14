@@ -2,7 +2,6 @@ class Twitch {
   static url() {
     return "https://wind-bow.gomix.me/twitch-api/streams/";
   }
-
   // Takes instance of Streamer Class and fetches stream info,
   // returned data builds out instance further with new properties.
   static getTwitchAPI() {
@@ -56,7 +55,7 @@ class Twitch {
     const liveStreams = Streamer.all().filter((streamer) => streamer.status === 'Live');
     const randNum = randomNumber(liveStreams.length);
     const featuredStreamer = liveStreams[randNum];
-    
+
     const featureHTML = featureTemplate(featuredStreamer);
     featuredSection.innerHTML = featureHTML;
     // Setting Couter to number of live streams
