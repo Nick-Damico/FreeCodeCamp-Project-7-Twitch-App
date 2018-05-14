@@ -46,10 +46,13 @@ class Streamer {
     this.name = streamer.name;
     this.image = streamer.image;
     this.summary = streamer.summary;
-
-    // Adding instance to the Streamer Class all collection.
+    // Add newly instantiated Object to Streamer. all array
     Streamer.all(this);
   };
+
+  static init() {
+    this.createStreamers();
+  }
 
   // Builds a Class scoped array to keep track of all instances of the class
   static all(streamer) {
