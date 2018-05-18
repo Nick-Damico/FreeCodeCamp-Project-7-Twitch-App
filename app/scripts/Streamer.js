@@ -40,16 +40,18 @@ const STREAMERS = [
 ];
 
 class Streamer {
+  // 1. Constructor
   constructor(id, streamer) {
     this.id = id;
-    this.status = 'Offline';
-    this.name = streamer.name;
-    this.image = streamer.image;
-    this.summary = streamer.summary;
+    this.status     = 'Offline';
+    this.name       = streamer.name;
+    this.image      = streamer.image;
+    this.summary    = streamer.summary;
     // Add newly instantiated Object to Streamer. all array
     Streamer.all(this);
   };
 
+  // Class Methods
   static init() {
     this.createStreamers();
   }
