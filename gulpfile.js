@@ -12,7 +12,7 @@ const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', () => {
   browserSync.init({
     server: {
       baseDir: 'app'
@@ -20,7 +20,7 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   return gulp.src('app/scss/**/*.sass')
              .pipe(sass())
              .pipe(autoprefixer({
@@ -34,14 +34,14 @@ gulp.task('sass', function() {
 });
 
 gulp.task('babel', () => {
-  return gulp.src('app/scripts/app.js')
+  return gulp.src('app/scripts/*.js')
              .pipe(babel({
                presets: ['env']
              }))
-             .pipe(gulp.dest('dist'))
+             .pipe(gulp.dest('app/scripts/scripts-bundled'))
 });
 
-gulp.task('useref', function(){
+gulp.task('useref', () =>{
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
@@ -49,27 +49,27 @@ gulp.task('useref', function(){
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('imagesmin', function() {
+gulp.task('imagesmin', () => {
   return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
              .pipe( cache(imagemin()) )
              .pipe(gulp.dest('dist/images'))
 });
 
-gulp.task('clean:dist', function() {
+gulp.task('clean:dist', () => {
   return del.sync('dist');
 });
 
-gulp.task('cache:clear', function (callback) {
+gulp.task('cache:clear',  (callback) => {
 return cache.clearAll(callback)
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function() {
+gulp.task('watch', ['browserSync', 'sass', 'babel'], function() {
   gulp.watch('app/scss/**/*.sass', ['sass']);
   gulp.watch('app/index.html', browserSync.reload);
   gulp.watch('app/scripts/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', function (cb){
+gulp.task('build', (cb) => {
   runSequence('clean:dist',
     [`sass`, `useref`, `imagesmin`],
     cb
@@ -77,7 +77,7 @@ gulp.task('build', function (cb){
   console.log('Building files');
 });
 
-gulp.task('default', function(cb) {
+gulp.task('default', (cb) => {
   runSequence(
     ['sass', 'browserSync', 'watch'],
     cb
