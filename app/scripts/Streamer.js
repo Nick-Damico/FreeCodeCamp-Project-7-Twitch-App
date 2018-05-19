@@ -1,4 +1,3 @@
-// Streamer Class, building class instances of 'Streamer'
 const STREAMERS = [
   {
     name: "Free Code Camp",
