@@ -28,6 +28,7 @@ class Twitch {
         if (streamer.id === 9) {
           cb.appendChannelCards();
           cb.getFeatured();
+          cb.updateLiveCounter();
         }
       });
     }
