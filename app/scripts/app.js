@@ -1,13 +1,17 @@
 class App {
-  init() {
-    // Build Streamer Objects
-    Streamer.init();
-    // Create channel__card HTML using Template and append to DOM.
-    Twitch.getTwitchAPI({
-      appendChannelCards: this.appendChannelCards,
-      getFeatured: this.getFeatured,
-      updateLiveCounter: this.updateLiveCounter
-    });
+  init(streamers) {
+    if (streamers) {
+      // Build Streamer Objects
+      Streamer.init(streamers);
+      // Create channel__card HTML using Template and append to DOM.
+      Twitch.getTwitchAPI({
+        appendChannelCards: this.appendChannelCards,
+        getFeatured: this.getFeatured,
+        updateLiveCounter: this.updateLiveCounter
+      });
+    } else {
+      console.error('You must supply a collection of streamers to initialize.');
+    }
   }
 
   // Append channel__cards to DOM using Streamers.all collection
