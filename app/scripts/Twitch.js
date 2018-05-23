@@ -3,6 +3,7 @@ class Twitch {
   static url() {
     return "https://wind-bow.gomix.me/twitch-api/streams/";
   }
+
   // Takes instance of Streamer Class and fetches stream info,
   // returned data builds out instance further with new properties.
   static getTwitchAPI(cb) {
@@ -32,6 +33,6 @@ class Twitch {
         }
       });
     }
-  };
+  }
 
 }
