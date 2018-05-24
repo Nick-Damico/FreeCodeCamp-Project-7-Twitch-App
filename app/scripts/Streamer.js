@@ -12,10 +12,10 @@ class Streamer {
 
   // Class Methods
   static init(streamers) {
-    if (streamers) {
+    if (streamers && Array.isArray(streamer) {
       this.createStreamers(streamers);
     } else {
-      console.error('Must supply a collection streamers to initialize.');
+      console.error('Must supply a collection of streamers of Type Array to initialize.');
     }
   }
 
