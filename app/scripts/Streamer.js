@@ -12,7 +12,7 @@ class Streamer {
 
   // Class Methods
   static init(streamers) {
-    if (streamers && Array.isArray(streamer) {
+    if (streamers && Array.isArray(streamers)) {
       this.createStreamers(streamers);
     } else {
       console.error('Must supply a collection of streamers of Type Array to initialize.');
