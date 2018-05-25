@@ -1,6 +1,6 @@
 class App {
   init(streamers) {
-    if (streamers) {
+    if (streamers && Array.isArray(streamers)) {
       // Build Streamer Objects
       Streamer.init(streamers);
       // Create channel__card HTML using Template and append to DOM.
