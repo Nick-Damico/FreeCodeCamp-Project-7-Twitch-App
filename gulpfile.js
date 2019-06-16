@@ -12,74 +12,68 @@ const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('browserSync', () => {
+function browser_sync(done) {
   browserSync.init({
     server: {
       baseDir: 'app'
     },
-  });
-});
+  })
 
-gulp.task('sass', () => {
+  done();
+};
+
+function sass_compile(done) {
   return gulp.src('app/scss/**/*.sass')
-             .pipe(sass())
-             .pipe(autoprefixer({
-               browsers: ['last 2 versions'],
-               cascade: false
-             }))
-             .pipe( gulp.dest('app/styles') )
-             .pipe(browserSync.reload({
-               stream: true
-             }))
-});
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('app/styles'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+};
 
-gulp.task('babel', () => {
+function babel_js() {
   return gulp.src('app/scripts/*.js')
-             .pipe(babel({
-               presets: ['env']
-             }))
-             .pipe(gulp.dest('app/scripts/scripts-bundled'))
-});
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(gulp.dest('app/scripts/scripts-bundled'))
+};
 
-gulp.task('useref', () =>{
+function useref_compile() {
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('dist'))
-});
+};
 
-gulp.task('imagesmin', () => {
+function minify_images() {
   return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
-             .pipe( cache(imagemin()) )
-             .pipe(gulp.dest('dist/images'))
-});
+    .pipe(cache(imagemin()))
+    .pipe(gulp.dest('dist/images'))
+};
 
-gulp.task('clean:dist', () => {
+function clean_dist() {
   return del.sync('dist');
-});
+};
 
-gulp.task('cache:clear',  (callback) => {
-return cache.clearAll(callback)
-});
+function cache_clear(callback) {
+  return cache.clearAll(callback)
+};
 
-gulp.task('watch', ['browserSync', 'sass', 'babel'], function() {
-  gulp.watch('app/scss/**/*.sass', ['sass']);
+gulp.task('sass_css', sass_compile);
+gulp.task('js', babel_js);
+gulp.task('build', gulp.series(clean_dist, gulp.series(sass_compile, useref_compile, minify_images))); // Needs fixed
+gulp.task('default', console.log('Functionality not defined')); // Needs to be defined
+
+gulp.task('start_dev', gulp.series(browser_sync, sass_compile, babel_js, function(done) {
+  gulp.watch('app/scss/**/*.sass', gulp.series(sass_compile));
   gulp.watch('app/index.html', browserSync.reload);
   gulp.watch('app/scripts/**/*.js', browserSync.reload);
-});
 
-gulp.task('build', (cb) => {
-  runSequence('clean:dist',
-    [`sass`, `useref`, `imagesmin`],
-    cb
-  )
-  console.log('Building files');
-});
-
-gulp.task('default', (cb) => {
-  runSequence(
-    ['sass', 'browserSync', 'watch'],
-    cb
-  )
-});
+  done();
+}));
